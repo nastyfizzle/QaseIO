@@ -2,6 +2,7 @@ package tests;
 
 import org.testng.annotations.Test;
 import pages.LoginPage;
+import pages.ProjectDetailsPage;
 
 public class CaseTest extends BaseTest {
 
@@ -10,11 +11,12 @@ public class CaseTest extends BaseTest {
         new LoginPage()
                 .open()
                 .login("nastasv691@gmail.com", "Nastya123!")
-                .openProject("TEST_PROJECT");
-
-        //open project by name TEST_PROJECT
-        //create case
-        //validate case data
+                .openProjectByUrl();
+        new ProjectDetailsPage()
+                .clickOnCreateNewCaseButton()
+                .isOpened()
+                .fillInFields("Any test case name", "Actual", "Test case wuthout suite",
+                        "Major", "Low","Any description text here")
+                .clickOnSaveButton();
     }
-
 }
