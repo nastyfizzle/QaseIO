@@ -1,7 +1,10 @@
 package tests;
 
+import models.TestCase;
+import models.TestCaseFactory;
 import org.testng.annotations.Test;
 import pages.LoginPage;
+import pages.NewCasePage;
 import pages.ProjectDetailsPage;
 
 public class CaseTest extends BaseTest {
@@ -14,9 +17,10 @@ public class CaseTest extends BaseTest {
                 .openProjectByUrl();
         new ProjectDetailsPage()
                 .clickOnCreateNewCaseButton()
-                .isOpened()
-                .fillInFields("Any test case name", "Actual", "Test case wuthout suite",
-                        "Major", "Low","Any description text here")
+                .isOpened();
+        TestCase testCase = TestCaseFactory.getAllFields();
+        new NewCasePage()
+                .fillInFields(testCase)
                 .clickOnSaveButton();
     }
 }

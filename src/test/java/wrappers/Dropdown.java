@@ -1,7 +1,6 @@
 package wrappers;
 
 import org.openqa.selenium.By;
-import pages.NewCasePage;
 
 import static com.codeborne.selenide.Selenide.$;
 
