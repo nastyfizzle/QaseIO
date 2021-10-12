@@ -3,9 +3,7 @@ package pages;
 import com.codeborne.selenide.Condition;
 import models.TestCase;
 import org.openqa.selenium.By;
-import org.w3c.dom.Text;
 import wrappers.Dropdown;
-import wrappers.TextArea;
 
 import static com.codeborne.selenide.Selectors.byXpath;
 import static com.codeborne.selenide.Selenide.$;
@@ -32,11 +30,11 @@ public class NewCasePage {
         new Dropdown("Layer").selectOption(testCase.getLayer());
         new Dropdown("Is Flaky").selectOption(testCase.getIsFlaky());
         new Dropdown("Milestone").selectOption(testCase.getMilestone());
-        new Dropdown("Behaviour").selectOption(testCase.getBehaviour());
+        new Dropdown("Behavior").selectOption(testCase.getBehaviour());
         new Dropdown("Automation status").selectOption(testCase.getAutomationStatus());
-        new TextArea("Description").write(testCase.getDescription());
-        new TextArea("Pre-conditions").write(testCase.getPreConditions());
-        new TextArea("Post-conditions").write(testCase.getPostConditions());
+//        new TextArea("Description").write(testCase.getDescription());
+//        new TextArea("Pre-conditions").write(testCase.getPreConditions());
+//        new TextArea("Post-conditions").write(testCase.getPostConditions());
         return this;
     }
 

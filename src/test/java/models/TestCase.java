@@ -4,7 +4,7 @@ public class TestCase {
 
     String title;
     String status;
-    String description;
+    //String description;
     String suite;
     String severity;
     String priority;
@@ -14,15 +14,15 @@ public class TestCase {
     String milestone;
     String behaviour;
     String automationStatus;
-    String preConditions;
-    String postConditions;
-    //String tags;
+//    String preConditions;
+//    String postConditions;
+//    String tags;
 
-    public TestCase(String title, String status, String description, String suite, String severity, String priority, String type, String layer,
-                    String isFlaky, String milestone, String behaviour, String automationStatus, String preConditions, String postConditions) {
+    public TestCase(String title, String status, String suite, String severity, String priority, String type, String layer,
+                    String isFlaky, String milestone, String behaviour, String automationStatus) {
         this.title = title;
         this.status = status;
-        this.description = description;
+        //this.description = description;
         this.suite = suite;
         this.severity = severity;
         this.priority = priority;
@@ -32,9 +32,9 @@ public class TestCase {
         this.milestone = milestone;
         this.behaviour = behaviour;
         this.automationStatus = automationStatus;
-        this.preConditions = preConditions;
-        this.postConditions = postConditions;
-        //this.tags = tags;
+//        this.preConditions = preConditions;
+//        this.postConditions = postConditions;
+//        this.tags = tags;
     }
 
     public TestCase(String title) {
@@ -57,13 +57,13 @@ public class TestCase {
         this.status = status;
     }
 
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
+//    public String getDescription() {
+//        return description;
+//    }
+//
+//    public void setDescription(String description) {
+//        this.description = description;
+//    }
 
     public String getSuite() {
         return suite;
@@ -137,21 +137,21 @@ public class TestCase {
         this.automationStatus = automationStatus;
     }
 
-    public String getPreConditions() {
-        return preConditions;
-    }
-
-    public void setPreConditions(String preConditions) {
-        this.preConditions = preConditions;
-    }
-
-    public String getPostConditions() {
-        return postConditions;
-    }
-
-    public void setPostConditions(String postConditions) {
-        this.postConditions = postConditions;
-    }
+//    public String getPreConditions() {
+//        return preConditions;
+//    }
+//
+//    public void setPreConditions(String preConditions) {
+//        this.preConditions = preConditions;
+//    }
+//
+//    public String getPostConditions() {
+//        return postConditions;
+//    }
+//
+//    public void setPostConditions(String postConditions) {
+//        this.postConditions = postConditions;
+//    }
 
 //    public String getTags() {
 //        return tags;

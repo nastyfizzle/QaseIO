@@ -30,8 +30,6 @@ public class NewProjectPage {
         if (StringUtils.isNotEmpty(projectCode)) {
             $(PROJECT_CODE_CSS).sendKeys(projectCode);
         }
-//        $(PROJECT_CODE_CSS).clear();
-//        $(PROJECT_CODE_CSS).sendKeys(projectCode);
         switch (projectAccessType) {
             case "Private": {
                 $(PRIVATE_CHECKBOX_CSS).click();
@@ -63,6 +61,6 @@ public class NewProjectPage {
 
     public ProjectDetailsPage clickOnCreateProjectButton() {
         $(CREATE_PROJECT_BUTTON).click();
-        return new ProjectDetailsPage();
+        return new ProjectDetailsPage().isOpened();
     }
 }
