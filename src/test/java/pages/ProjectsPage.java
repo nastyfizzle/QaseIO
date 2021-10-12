@@ -28,11 +28,11 @@ public class ProjectsPage {
     }
 
     public ProjectDetailsPage openProjectByUrl() {
-        Selenide.open("https://app.qase.io/project/TP");
+        Selenide.open("project/TP");
         return new ProjectDetailsPage();
     }
-}
 
-//дописать обертку на дропдану
-//написать тайтл
-//описание и другие поля - задание со *
+//    public ProjectDetailsPage openProjectByUrl(String projectCode) {
+//        Selenide.open("project/" + projectCode)
+//    }
+}
