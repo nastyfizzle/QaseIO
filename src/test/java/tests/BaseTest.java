@@ -20,7 +20,13 @@ public class BaseTest {
         Configuration.timeout = 20000;
         Configuration.pageLoadTimeout = 60000;
         Configuration.browser = "chrome";
-        Configuration.baseUrl = PropertyReader.getProperty("qase.url");
+        //Baser URL
+        Configuration.baseUrl = System.getenv().getOrDefault("QASE_URL",
+                PropertyReader.getProperty("qase.url"));
+        user = System.getenv().getOrDefault("QASE_USER",
+                PropertyReader.getProperty("qase.user"));
+        password = System.getenv().getOrDefault("QASE_PASS",
+                PropertyReader.getProperty("qase.pass"));
         Configuration.startMaximized = true;
         Configuration.headless = false;
         //All clicks using JS
