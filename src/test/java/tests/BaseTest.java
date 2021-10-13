@@ -31,8 +31,6 @@ public class BaseTest {
         Configuration.headless = false;
         //All clicks using JS
         Configuration.clickViaJs = false;
-        user = PropertyReader.getProperty("qase.user");
-        password = PropertyReader.getProperty("qase.pass");
     }
 
     @AfterMethod (alwaysRun = true)
