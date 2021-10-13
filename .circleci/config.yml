@@ -27,9 +27,6 @@ jobs:
       # End
       # Console commands
       - run:
-          name: Checking Chrome version
-          command: chrome --version
-      - run:
           name: Running tests
           command: mvn clean test
       - run:
