@@ -1,6 +1,8 @@
 package tests;
 
 import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.Selenide;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
 
@@ -17,5 +19,10 @@ public class BaseTest {
         Configuration.headless = false;
         //All clicks using JS
         Configuration.clickViaJs = false;
+    }
+
+    @AfterMethod (alwaysRun = true)
+    public void close() {
+        Selenide.closeWebDriver();
     }
 }
