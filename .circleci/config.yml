@@ -7,7 +7,7 @@ version: 2
 # Jobs description
 jobs:
   # Name of jobs
-  ui-tests:
+  TMS-19:
     # Check https://circleci.com/docs/2.0/docker-image-tags.json for the list of all docker images. What will be installed within docker container/
     docker:
       - image: circleci/openjdk:11.0.8-jdk-browsers
@@ -43,9 +43,9 @@ jobs:
           path: target/site/allure-maven-plugin/
 workflows:
   version: 2
-  commit:
+  pr:
     jobs:
-      - ui-tests
+      - TMS-19
   periodical:
     triggers:
       - schedule:
@@ -55,4 +55,4 @@ workflows:
               only:
                 - master
     jobs:
-      - ui-tests
+      - TMS-19
