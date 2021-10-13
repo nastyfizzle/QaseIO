@@ -3,8 +3,6 @@ package pages;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Selenide;
 
-import java.time.Duration;
-
 import static com.codeborne.selenide.Selenide.$;
 
 public class LoginPage {
@@ -23,7 +21,7 @@ public class LoginPage {
     public ProjectsPage login(String user, String pass) {
         $(USERNAME_CSS).sendKeys(user);
         $(PASSWORD_CSS).sendKeys(pass);
-        $(PASSWORD_CSS).submit();
+        $(LOGIN_BUTTON).click();
         return new ProjectsPage().isOpened();
     }
 }
