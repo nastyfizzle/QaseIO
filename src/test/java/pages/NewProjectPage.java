@@ -11,12 +11,12 @@ public class NewProjectPage {
 
     public static final String PROJECT_NAME_CSS = "#inputTitle";
     public static final String PROJECT_CODE_CSS = "#inputCode";
-    public static final String PROJECT_DESCRIPTION = "#inputDescription";
-    public static final String PRIVATE_CHECKBOX = "#private-access-type";
-    public static final String PUBLIC_CHECKBOX = "#public-access-type";
-    public static final String ALL_MEMBERS = "#accessAll";
-    public static final String MEMBERS_FROM_SPECIFIC_GROUP = "#accessGroup";
-    public static final String NO_MEMBERS = "#accessNone";
+    public static final String PROJECT_DESCRIPTION_CSS = "#inputDescription";
+    public static final String PRIVATE_CHECKBOX_CSS = "#private-access-type";
+    public static final String PUBLIC_CHECKBOX_CSS = "#public-access-type";
+    public static final String ALL_MEMBERS_CSS = "#accessAll";
+    public static final String MEMBERS_FROM_SPECIFIC_GROUP_CSS = "#accessGroup";
+    public static final String NO_MEMBERS_CSS = "#accessNone";
     public static final By CREATE_PROJECT_BUTTON = byXpath("//button[contains(text(), 'Create project')]");
 
     public NewProjectPage isOpened() {
@@ -30,39 +30,37 @@ public class NewProjectPage {
         if (StringUtils.isNotEmpty(projectCode)) {
             $(PROJECT_CODE_CSS).sendKeys(projectCode);
         }
-//        $(PROJECT_CODE_CSS).clear();
-//        $(PROJECT_CODE_CSS).sendKeys(projectCode);
         switch (projectAccessType) {
             case "Private": {
-                $(PRIVATE_CHECKBOX).click();
+                $(PRIVATE_CHECKBOX_CSS).click();
                 switch (membersAccess) {
                     case "Add all members to this project": {
-                        $(ALL_MEMBERS).click();
+                        $(ALL_MEMBERS_CSS).click();
                         break;
                     }
                     case "Add members from specific group": {
-                        $(MEMBERS_FROM_SPECIFIC_GROUP).click();
+                        $(MEMBERS_FROM_SPECIFIC_GROUP_CSS).click();
                         break;
                     }
                     case "Don't add members": {
-                        $(NO_MEMBERS).click();
+                        $(NO_MEMBERS_CSS).click();
                         break;
                     }
                 }
                 break;
         }
             case "Public" : {
-                $(PUBLIC_CHECKBOX).click();
+                $(PUBLIC_CHECKBOX_CSS).click();
                 break;
             }
         }
-        $(PROJECT_DESCRIPTION).sendKeys(description);
-        $(PUBLIC_CHECKBOX).click();
+        $(PROJECT_DESCRIPTION_CSS).sendKeys(description);
+        $(PUBLIC_CHECKBOX_CSS).click();
         return this;
     }
 
     public ProjectDetailsPage clickOnCreateProjectButton() {
         $(CREATE_PROJECT_BUTTON).click();
-        return new ProjectDetailsPage();
+        return new ProjectDetailsPage().isOpened();
     }
 }

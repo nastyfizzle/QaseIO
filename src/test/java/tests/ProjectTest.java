@@ -1,5 +1,6 @@
 package tests;
 
+import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.LoginPage;
 import pages.NewProjectPage;
@@ -16,9 +17,9 @@ public class ProjectTest extends BaseTest{
         new ProjectsPage()
                 .clickOnCreateNewProjectButton();
         new NewProjectPage()
-                .fillInFields("QaseIO", "QIO", "Any test data here", "Public", "")
+                .fillInFields("CircleCI", "QIO", "Any test data here", "Public", "")
                 .clickOnCreateProjectButton();
-        new ProjectDetailsPage()
-                .isOpened();
+        Assert.assertEquals(ProjectDetailsPage.getTestCaseName(), "CircleCI",
+                "Project wasn't created or it has wrong name");
     }
 }
