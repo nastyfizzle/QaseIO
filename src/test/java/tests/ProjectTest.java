@@ -13,7 +13,7 @@ public class ProjectTest extends BaseTest{
     public void projectShouldBeCreated() {
         new LoginPage()
                 .open()
-                .login("nastasv691@gmail.com", "Nastya123!");
+                .login(user, password);
         new ProjectsPage()
                 .clickOnCreateNewProjectButton();
         new NewProjectPage()

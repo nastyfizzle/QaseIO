@@ -1,9 +1,10 @@
-package tests;
+package tests.base;
 
 import org.openqa.selenium.WebDriver;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
+import utils.AllureUtils;
 
 import java.util.concurrent.TimeUnit;
 

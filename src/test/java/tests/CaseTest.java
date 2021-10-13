@@ -14,7 +14,7 @@ public class CaseTest extends BaseTest {
     public void testCaseAllFieldsShouldBeCreated() {
         new LoginPage()
                 .open()
-                .login("nastasv691@gmail.com", "Nastya123!")
+                .login(user, password)
                 .openProjectByUrl();
         new ProjectDetailsPage()
                 .clickOnCreateNewCaseButton()
@@ -31,7 +31,7 @@ public class CaseTest extends BaseTest {
     public void testCaseMandatoryFieldShouldBeCreated() {
         new LoginPage()
                 .open()
-                .login("nastasv691@gmail.com", "Nastya123!")
+                .login(user, password)
                 .openProjectByUrl();
         new ProjectDetailsPage()
                 .clickOnCaseButton()
@@ -48,7 +48,7 @@ public class CaseTest extends BaseTest {
     public void testCaseShouldBeCreated() {
         new LoginPage()
                 .open()
-                .login("nastasv691@gmail.com", "Nastya123!")
+                .login(user, password)
                 .openProjectByUrl();
         new ProjectDetailsPage()
                 .clickOnCreateCaseButton()
@@ -65,7 +65,7 @@ public class CaseTest extends BaseTest {
     public void testCaseShouldBeDeleted() {
         new LoginPage()
                 .open()
-                .login("nastasv691@gmail.com", "Nastya123!")
+                .login(user, password)
                 .openProjectByUrl();
         new ProjectDetailsPage()
                 .clickOnCaseButton()
