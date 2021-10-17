@@ -38,8 +38,7 @@ public class ProjectSteps {
                 .isOpened()
                 .clickOnSettingsOption(projectName)
                 .editProjectTitle(newProjectName)
-                .clickOnUpdate()
-                .isProjectTitleUpdated(newProjectName);
+                .clickOnUpdate();
         return this;
     }
 
@@ -48,8 +47,7 @@ public class ProjectSteps {
         projectsPage
                 .isOpened()
                 .clickOnDeleteProjectOption(projectName)
-                .confirmDeleting()
-                .isProjectDeleted(projectName);
+                .confirmDeleting();
         return this;
     }
 
@@ -58,6 +56,14 @@ public class ProjectSteps {
         projectsPage
                 .open()
                 .isProjectCreated(projectName);
+        return this;
+    }
+
+    @Step("Validate the name of created project is displayed in the list of projects")
+    public ProjectSteps validateProjectUpdated(String newProjectName) {
+        projectsPage
+                .open()
+                .isProjectCreated(newProjectName);
         return this;
     }
 

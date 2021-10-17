@@ -50,11 +50,13 @@ public class ProjectTest extends BaseTest {
 
     @Test(description = "Try using steps class")
     public void projectShouldBeCRUD() {
+        loginSteps
+                .login(user, password);
         projectSteps
                 .createProject("CircleCI", "QIO", "Any test data here", "Public", "")
                 .validateProjectCreated("CircleCI")
                 .updateProject("CircleCI", "CircleCI TEST")
-                .validateProjectCreated("CircleCI TEST")
+                .validateProjectUpdated("CircleCI TEST")
                 .deleteProject("CircleCI TEST")
                 .validateProjectDeleted("CircleCI TEST");
     }
