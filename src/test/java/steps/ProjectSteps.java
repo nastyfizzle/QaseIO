@@ -20,52 +20,52 @@ public class ProjectSteps {
         this.projectDetailsPage = new ProjectDetailsPage();
     }
 
-    @Step("Create new project")
-    public void createProject(String projectName, String projectCode, String description,
-                              String projectAccessType, String membersAccess) {
+    @Step("Click on [Create new project] button and fill in fields with valid values")
+    public ProjectSteps createProject(String projectName, String projectCode, String description,
+                                      String projectAccessType, String membersAccess) {
         projectsPage
                 .isOpened()
-                .clickOnCreateNewProjectButton();
-        newProjectPage
+                .clickOnCreateNewProjectButton()
                 .isOpened()
                 .fillInFields(projectName, projectCode, description, projectAccessType, membersAccess)
                 .clickOnCreateProjectButton();
+        return this;
     }
 
-    @Step("Update project")
-    public void updateProject(String projectCode, String newProjectName) {
+    @Step("Open settings and update title of project with the new one")
+    public ProjectSteps updateProject(String projectName, String newProjectName) {
         projectsPage
-                .open(projectCode);
-        settingsPage
                 .isOpened()
-                .open(projectCode)
+                .clickOnSettingsOption(projectName)
                 .editProjectTitle(newProjectName)
-                .clickOnUpdate();
+                .clickOnUpdate()
+                .isProjectTitleUpdated(newProjectName);
+        return this;
     }
 
     @Step("Delete project")
-    public ProjectSteps deleteProject(String projectCode) {
+    public ProjectSteps deleteProject(String projectName) {
         projectsPage
-                .open(projectCode);
-        settingsPage
                 .isOpened()
-                .open(projectCode)
-                .clickOnDelete()
-                .confirmProjectDeleting();
+                .clickOnDeleteProjectOption(projectName)
+                .confirmDeleting()
+                .isProjectDeleted(projectName);
         return this;
     }
 
     @Step("Validate the name of created project is displayed in the list of projects")
-    public void validateProjectCreated(String projectName) {
+    public ProjectSteps validateProjectCreated(String projectName) {
         projectsPage
                 .open()
                 .isProjectCreated(projectName);
+        return this;
     }
 
     @Step("Validate the name of created project isn't displayed in the list of projects")
-    public void validateProjectDeleted(String projectName) {
+    public ProjectSteps validateProjectDeleted(String projectName) {
         projectsPage
                 .open()
                 .isProjectDeleted(projectName);
+        return this;
     }
 }

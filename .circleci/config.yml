@@ -40,9 +40,9 @@ jobs:
           path: target/site/allure-maven-plugin/
 workflows:
   version: 2
-  pr:
+  commit:
     jobs:
-      - TMS-19
+      - QaseIO tests
   periodical:
     triggers:
       - schedule:
@@ -52,4 +52,4 @@ workflows:
               only:
                 - master
     jobs:
-      - TMS-19
+      - QaseIO tests
