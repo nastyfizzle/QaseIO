@@ -1,23 +1,14 @@
 package steps;
 
 import io.qameta.allure.Step;
-import pages.NewProjectPage;
-import pages.ProjectDetailsPage;
 import pages.ProjectsPage;
-import pages.SettingsPage;
 
 public class ProjectSteps {
 
     ProjectsPage projectsPage;
-    SettingsPage settingsPage;
-    NewProjectPage newProjectPage;
-    ProjectDetailsPage projectDetailsPage;
 
     public ProjectSteps() {
         this.projectsPage = new ProjectsPage();
-        this.settingsPage = new SettingsPage();
-        this.newProjectPage = new NewProjectPage();
-        this.projectDetailsPage = new ProjectDetailsPage();
     }
 
     @Step("Click on [Create new project] button and fill in fields with valid values")
