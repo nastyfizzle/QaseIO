@@ -16,7 +16,7 @@ public class CaseTest extends BaseTest {
                 .open()
                 .validLogin(user, password)
                 .open("TP")
-                .clickOnCreateNewCaseButton()
+                .clickOnCaseButton()
                 .isOpened()
                 .fillInFields(testCase)
                 .clickOnSaveButton()
