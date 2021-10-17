@@ -10,21 +10,15 @@ public class ProjectDetailsPage {
 
     public static final String projectNameLabel = "//*[contains(text(), '%s')]";
     public static final String testCaseNameLabel = "//*[contains(text(),'%s')]";
+    public static final String PROJECT_NAME_CSS = "#p.header";
 
     public static final String CREATE_NEW_CASE_BUTTON = "//*[contains(text(), 'Create new case')]";
     public static final String CASE_BUTTON_CSS = "#create-case-button";
     public static final String DELETE_CASE_BUTTON = "//*[contains(@title,'Delete case')]";
     public static final String CONFIRM_DELETE_CASE_BUTTON = "//*[contains(@class,'modal-footer')]/*[contains(text(),'Delete')]";
-    //  public static final String DELETE_BUTTON_CONFIRM_FORM = "//button[contains(text(), 'Delete')]";
+
     public static final String EDIT_BUTTON = "//*[contains(text(),'Edit')]//*[contains(@class, 'fa fa-pencil-alt')]";
 
-    public static final String PROJECT_NAME_CSS = "#p.header";
-
-
-    //    public ProjectDetailsPage isOpened() {
-//        $(header).shouldBe(Condition.visible);
-//        return this;
-//    }
     public static String getProjectName() {
         return $(PROJECT_NAME_CSS).getText();
     }
