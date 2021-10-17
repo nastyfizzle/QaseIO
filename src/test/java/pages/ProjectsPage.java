@@ -4,35 +4,61 @@ import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Selenide;
 
 import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.$$;
+import static com.codeborne.selenide.Selenide.$x;
 
 public class ProjectsPage {
 
-    public static final String CREATE_BUTTON_CSS = "#createButton";
-    public static final String PROJECT_NAME_CSS = "#a.defect-title";
+    public static final String CREATE_NEW_PROJECT_BUTTON_CSS = "#createButton";
+    public static final String projectNameLabel = "//table[contains(@class,'table')]//*[contains(text(), '%s')]";
+    public static final String threeDotsMenuLocator = "//*[contains(text(),'%s')]/ancestor::tr/descendant::a[contains(@class, 'btn')]";
+    public static final String deleteOptionLocator = "//*[contains(text(),'%s')]/ancestor::tr/descendant::a[contains(text(), 'Delete')]";
+    public static final String settingsOptionLocator = "//*[contains(text(),'%s')]/ancestor::tr/descendant::a[contains(text(), 'Settings')]";
+            //"//*[contains(text(),'%s')]/ancestor::tr/descendant::a[contains(@class, 'text-danger')]";
 
-    public ProjectsPage isOpened() {
-        $(CREATE_BUTTON_CSS).shouldBe(Condition.visible);
+    public ProjectsPage open() {
+        Selenide.open("projects");
         return this;
     }
 
+    public ProjectsPage isOpened() {
+        $(CREATE_NEW_PROJECT_BUTTON_CSS).shouldBe(Condition.visible);
+        return this;
+    }
+
+    public ProjectDetailsPage open(String projectCode) {
+        Selenide.open("project/" + projectCode);
+        return new ProjectDetailsPage();
+    }
+
     public NewProjectPage clickOnCreateNewProjectButton() {
-        $(CREATE_BUTTON_CSS).click();
-        return new NewProjectPage().isOpened();
+        $(CREATE_NEW_PROJECT_BUTTON_CSS).click();
+        return new NewProjectPage();
     }
 
-    public ProjectDetailsPage openProject(String name) {
-        //$$(PROJECT_NAME).findBy(text(name)).click(); //не работает..у меня не получилось решить эту проблему
-        $$(PROJECT_NAME_CSS).find(Condition.text(name)).click(); //этот локатор тоже не работает
-        return new ProjectDetailsPage();
+    public ProjectsPage isProjectCreated(String projectName) {
+        $x(String.format(projectNameLabel, projectName)).shouldBe(Condition.visible);
+        return this;
     }
 
-    public ProjectDetailsPage openProjectByUrl() {
-        Selenide.open("project/TP");
-        return new ProjectDetailsPage();
+    public ProjectsPage clickOnThreeDotsButton(String projectName) {
+        $x(String.format(threeDotsMenuLocator, projectName)).click();
+        return this;
     }
 
-//    public ProjectDetailsPage openProjectByUrl(String projectCode) {
-//        Selenide.open("project/" + projectCode)
-//    }
+    public DeleteProjectPage clickOnDeleteProjectOption(String projectName) {
+        clickOnThreeDotsButton(projectName);
+        $x(String.format(deleteOptionLocator, projectName)).click();
+        return new DeleteProjectPage();
+    }
+
+    public SettingsPage clickOnSettingsOption(String projectName) {
+        clickOnThreeDotsButton(projectName);
+        $x(String.format(settingsOptionLocator, projectName)).click();
+        return new SettingsPage();
+    }
+
+    public ProjectsPage isProjectDeleted(String projectName) {
+        $x(String.format(projectNameLabel, projectName)).shouldNotBe(Condition.visible);
+        return this;
+    }
 }

@@ -5,6 +5,9 @@ import com.codeborne.selenide.Selenide;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Listeners;
+import steps.CaseSteps;
+import steps.LoginSteps;
+import steps.ProjectSteps;
 import tests.base.TestListener;
 import utils.PropertyReader;
 
@@ -13,6 +16,10 @@ import utils.PropertyReader;
 public class BaseTest {
     public String user;
     public String password;
+
+    public LoginSteps loginSteps;
+    public ProjectSteps projectSteps;
+    public CaseSteps caseSteps;
 
     @BeforeMethod
     public void setup() {
@@ -31,6 +38,9 @@ public class BaseTest {
         Configuration.headless = false;
         //All clicks using JS
         Configuration.clickViaJs = false;
+        loginSteps = new LoginSteps();
+        projectSteps = new ProjectSteps();
+        caseSteps = new CaseSteps();
     }
 
     @AfterMethod (alwaysRun = true)
