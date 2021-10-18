@@ -2,7 +2,7 @@ package tests;
 
 import org.testng.annotations.Test;
 
-public class LoginTest extends BaseTest{
+public class LoginTest extends BaseTest {
 
     @Test(description = "Check that user is logged in with valid credentials")
     public void userShouldLogin() {

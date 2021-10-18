@@ -53,8 +53,8 @@ public class NewProjectPage {
                     }
                 }
                 break;
-        }
-            case "Public" : {
+            }
+            case "Public": {
                 $(PUBLIC_CHECKBOX_CSS).click();
                 break;
             }

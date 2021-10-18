@@ -24,21 +24,21 @@ public class SettingsPage {
         return this;
     }
 
-   public SettingsPage clickOnDelete() {
+    public SettingsPage clickOnDelete() {
         $(DELETE_PROJECT_BUTTON).click();
         return this;
-   }
+    }
 
-   public ProjectsPage confirmProjectDeleting() {
+    public ProjectsPage confirmProjectDeleting() {
         $(CONFIRM_DELETE_BUTTON).click();
         return new ProjectsPage();
-   }
+    }
 
-   public SettingsPage editProjectTitle(String newProjectName) {
+    public SettingsPage editProjectTitle(String newProjectName) {
         $(PROJECT_NAME_CSS).clear();
         $(PROJECT_NAME_CSS).sendKeys(newProjectName);
         return this;
-   }
+    }
 
     public SettingsPage clickOnUpdate() {
         $x(UPDATE_SETTINGS_BUTTON).click();

@@ -43,6 +43,17 @@ public class NewCasePage {
         return this;
     }
 
+    public NewCasePage clearTitleField() {
+        $(TITLE_INPUT_CSS).clear();
+        return this;
+    }
+
+    public NewCasePage updateMandatoryFields(TestCase testCase) {
+        clearTitleField();
+        $(TITLE_INPUT_CSS).sendKeys(testCase.getTitle());
+        return this;
+    }
+
     public ProjectDetailsPage clickOnSaveButton() {
         $(SAVE_BUTTON_CSS).click();
         return new ProjectDetailsPage();

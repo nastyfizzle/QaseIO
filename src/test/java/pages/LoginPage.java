@@ -3,7 +3,6 @@ package pages;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Selenide;
 import io.qameta.allure.Step;
-import org.apache.commons.logging.Log;
 import org.testng.Assert;
 
 import static com.codeborne.selenide.Selenide.$;

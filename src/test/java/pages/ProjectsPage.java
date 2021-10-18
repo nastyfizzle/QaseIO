@@ -13,7 +13,6 @@ public class ProjectsPage {
     public static final String threeDotsMenuLocator = "//*[contains(text(),'%s')]/ancestor::tr/descendant::a[contains(@class, 'btn')]";
     public static final String deleteOptionLocator = "//*[contains(text(),'%s')]/ancestor::tr/descendant::a[contains(text(), 'Delete')]";
     public static final String settingsOptionLocator = "//*[contains(text(),'%s')]/ancestor::tr/descendant::a[contains(text(), 'Settings')]";
-            //"//*[contains(text(),'%s')]/ancestor::tr/descendant::a[contains(@class, 'text-danger')]";
 
     public ProjectsPage open() {
         Selenide.open("projects");

@@ -50,7 +50,7 @@ public class ProjectSteps {
         return this;
     }
 
-    @Step("Validate the name of created project is displayed in the list of projects")
+    @Step("Validate the name of project is displayed with updated value in the list of projects")
     public ProjectSteps validateProjectUpdated(String newProjectName) {
         projectsPage
                 .open()
@@ -58,7 +58,7 @@ public class ProjectSteps {
         return this;
     }
 
-    @Step("Validate the name of created project isn't displayed in the list of projects")
+    @Step("Validate the name of deleted project isn't displayed in the list of projects")
     public ProjectSteps validateProjectDeleted(String projectName) {
         projectsPage
                 .open()

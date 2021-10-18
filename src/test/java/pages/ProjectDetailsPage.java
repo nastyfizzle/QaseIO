@@ -2,7 +2,6 @@ package pages;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Selenide;
-import org.openqa.selenium.Alert;
 
 import static com.codeborne.selenide.Selenide.*;
 
@@ -15,9 +14,9 @@ public class ProjectDetailsPage {
     public static final String CREATE_NEW_CASE_BUTTON = "//*[contains(text(), 'Create new case')]";
     public static final String CASE_BUTTON_CSS = "#create-case-button";
     public static final String DELETE_CASE_BUTTON = "//*[contains(@title,'Delete case')]";
+    public static final String EDIT_CASE_BUTTON = "//*[contains(@title,'Edit case')]";
     public static final String CONFIRM_DELETE_CASE_BUTTON = "//*[contains(@class,'modal-footer')]/*[contains(text(),'Delete')]";
 
-    public static final String EDIT_BUTTON = "//*[contains(text(),'Edit')]//*[contains(@class, 'fa fa-pencil-alt')]";
 
     public static String getProjectName() {
         return $(PROJECT_NAME_CSS).getText();
@@ -50,6 +49,12 @@ public class ProjectDetailsPage {
         return this;
     }
 
+    public NewCasePage clickOnEditTestCaseButton(String testCaseName) {
+        clickOnTestCaseName(testCaseName);
+        $x(EDIT_CASE_BUTTON).click();
+        return new NewCasePage();
+    }
+
     public ProjectDetailsPage clickOnDeleteTestCaseButton(String testCaseName) {
         clickOnTestCaseName(testCaseName);
         $x(DELETE_CASE_BUTTON).click();
@@ -67,6 +72,11 @@ public class ProjectDetailsPage {
     }
 
     public ProjectDetailsPage isTestCaseCreated(String testCaseName) {
+        $x(String.format(testCaseNameLabel, testCaseName)).shouldBe(Condition.visible);
+        return this;
+    }
+
+    public ProjectDetailsPage isTestCaseUpdated(String testCaseName) {
         $x(String.format(testCaseNameLabel, testCaseName)).shouldBe(Condition.visible);
         return this;
     }
