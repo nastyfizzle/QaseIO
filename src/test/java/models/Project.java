@@ -9,10 +9,7 @@ public class Project {
 
     String title;
     String code;
-
-//    String description;
-//    String projectAccessType;
-//    String membersAccess;
-
-
+    String description;
+    String access;
+    String group;
 }

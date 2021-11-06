@@ -1,37 +1,23 @@
 package adapters;
 
 import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import models.Project;
+import models.Response;
 
-import static io.restassured.RestAssured.given;
 
 public class ProjectsAdapter extends BaseAdapter {
 
-    public void create(Project project) {
-        post(new Gson().toJson(project), "v1/project");
+    public void createProject(Project project) {
+        post(new Gson().toJson(project), "v1/project", 200);
     }
 
-    public void delete(String code) {
-        given().
-                header("Content-Type", "application/json").
-                //auth().basic("USERNAME", "PASSWORD").
-                header("Token", "df33f1280430de441653ec6069038bfc68a58c1d").
-        when().
-                delete("https://api.qase.io/v1/project/" + code).
-        then().
-                log().all().
-                statusCode(200);
+    public void deleteProject(String code) {
+        delete("v1/project" + code);
     }
 
-
-
+    public Project getProject(String code) {
+        String body = get("v1/project/" + code);
+        return new Gson().fromJson(body, new TypeToken<Response<Project>>() {}.getType());
+    }
 }
-
-
-// df33f1280430de441653ec6069038bfc68a58c1d
-//{
-//    "title": "API project",
-//    "code": "API"
-//}
-// POST https://api.qase.io/v1/project
-//https://api.qase.io/v1/project/{code}
