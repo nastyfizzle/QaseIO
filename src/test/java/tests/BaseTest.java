@@ -1,6 +1,7 @@
 package tests;
 
 import adapters.ProjectsAdapter;
+import adapters.SuiteAdapter;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
 import org.testng.annotations.AfterMethod;
@@ -22,6 +23,7 @@ public class BaseTest {
     public ProjectSteps projectSteps;
     public CaseSteps caseSteps;
     public ProjectsAdapter projectsAdapter;
+    public SuiteAdapter suiteAdapter;
 
     @BeforeMethod
     public void setup() {
@@ -44,6 +46,7 @@ public class BaseTest {
         projectSteps = new ProjectSteps();
         caseSteps = new CaseSteps();
         projectsAdapter = new ProjectsAdapter();
+        suiteAdapter = new SuiteAdapter();
     }
 
     @AfterMethod (alwaysRun = true)
