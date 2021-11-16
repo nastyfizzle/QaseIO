@@ -13,7 +13,7 @@ public class ProjectsAdapter extends BaseAdapter {
     }
 
     public void deleteProject(String code) {
-        delete("v1/project" + code, 200);
+        delete("v1/project" + code);
     }
 
     public Response<Project> getProject(String code) {

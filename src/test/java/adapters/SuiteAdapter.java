@@ -11,7 +11,7 @@ public class SuiteAdapter extends BaseAdapter {
     }
 
     public void deleteSuite(String code, int suiteId) {
-        delete("v1/suite" + code + "/" + suiteId, 200);
+        delete("v1/suite" + code + "/" + suiteId);
     }
 
     public Response<Suite> getSuite(String code, int suiteId) {

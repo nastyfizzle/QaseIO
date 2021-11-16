@@ -24,15 +24,14 @@ public class BaseAdapter {
     }
 
     @Step("Perform the delete method and validate status code: '{statusCode}'")
-    public void delete(String uri, int expectedStatusCode) {
+    public void delete(String uri) {
             given().
                     header("Content-Type", "application/json").
                     header("Token", TOKEN).
             when().
                     delete(BASE_URL + uri).
             then().
-                    log().all().
-                    statusCode(expectedStatusCode);
+                    log().all();
     }
 
     @Step("Perform the get method and validate status code: '{statusCode}'")
